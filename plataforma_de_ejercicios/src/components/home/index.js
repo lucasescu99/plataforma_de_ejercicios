@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import {
   HomeContainer,
   HomeTitle,
@@ -7,7 +8,7 @@ import {
   HomeButton
 } from "./homeStyles";
 
-const Home = () => {
+const Home = ({ history }) => {
   const [inputs, setInputs] = useState({ email: "", name: "", phone: "" });
 
   const handleChange = e => {
@@ -17,7 +18,9 @@ const Home = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(inputs);
+    history.push(
+      `/prueba?name=${inputs.name}&email=${inputs.email}&phone=${inputs.phone}`
+    );
   };
 
   return (
